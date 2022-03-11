@@ -1,5 +1,5 @@
 <?php
 
-it('inspire artisans', function () {
-    $this->artisan('inspire')->assertExitCode(0);
+test('install command', function () {
+    $this->artisan('install')->assertExitCode(0);
 });
