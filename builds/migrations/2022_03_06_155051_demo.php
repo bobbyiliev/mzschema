@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        DB::connection('materialize')->statement(
+            "CREATE TABLE demo (id int, name text)"
+        );
     }
 
     /**
@@ -26,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        DB::connection('materialize')->statement(
+            "DROP TABLE IF EXISTS demo"
+        );
     }
 };
